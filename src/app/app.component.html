@@ -1,0 +1,143 @@
+<router-outlet></router-outlet>
+
+<div class="header-main">
+  <div class="header-in row">
+    <div class="header-div col-4" (click)="CompanyDetails=false;PersonalDetails=true;">
+      <span class="tick" *ngIf="CompanyDetails">
+        <img src="../assets/img/tick.png" />
+      </span>
+      <span class="number" *ngIf="PersonalDetails">1</span>
+      <span class="titlename" [ngStyle]="{'color':CompanyDetails?'#999999':''}">Personal Details</span>
+    </div>
+    <div class="header-div col-4" (click)="CompanyDetails=true;PersonalDetails=false;">
+      <span class="number" *ngIf="PersonalDetails" style="background:'#303d87'">2</span>
+      <span class="number" *ngIf="CompanyDetails">2</span>
+      <span class="titlename" [ngStyle]="{'color':PersonalDetails?'#999999':''}">Company Details</span>
+    </div>
+    <div class="header-div col-4">
+      <span class="number" style="background:'#303d87'">3</span>
+      <span class="titlename" style="color:'#999999'">Email Details</span>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="PersonalDetails">
+
+  <div class="hdr-main">
+    <h2 class="hdr-h1">Add your personal details</h2>
+    <p class="hdr-cnt">Lorem Ipsum is simple dummy text of the printing and typesetting industry.</p>
+  </div>
+
+  <div class="form-div">
+    <form class="subformPage">
+      <div class="row" style="padding: 25px;">
+        <div class="txt-input col-md-12 col-sm-12 col-lg-12 mb-2">
+          <label>Full Name</label>
+          <input type="text" maxlength="75" class="input-shadow-error" name="fullname" class="form-control">
+        </div>
+        <div class="txt-input col-md-12 col-sm-12 col-lg-12 mb-2">
+          <label>Gender</label>
+          <div class="row gndr-btn">
+            <div class="col-3">
+              <span [ngClass]="genderVal=='male'?'bck-dsn':''" (click)="genderVal='male'">Male</span>
+            </div>
+            <div class="col-3">
+              <span [ngClass]="genderVal=='female'?'bck-dsn':''" (click)="genderVal='female'">Female</span>
+            </div>
+            <div class="col-3">
+              <span [ngClass]="genderVal=='other'?'bck-dsn':''" (click)="genderVal='other'">Other</span>
+            </div>
+          </div>
+        </div>
+        <div class="txt-input col-md-12 col-sm-12 col-lg-12 mb-2">
+          <label>Country</label>
+          <select class="input-shadow-error" name="country" class="form-control">
+            <option value="India">India</option>
+            <option value="Afghanistan">Afghanistan</option>
+            <option value="Albania">Albania</option>
+            <option value="Algeria">Algeria</option>
+          </select>
+        </div>
+        <div class="txt-input col-md-12 col-sm-12 col-lg-12 mb-2">
+          <label>State</label>
+          <select class="input-shadow-error" name="state" class="form-control">
+            <option value="tn">Tamil Nadu</option>
+            <option value="Goa">Goa</option>
+            <option value="Assam">Assam</option>
+            <option value="Gujarat">Gujarat</option>
+          </select>
+        </div>
+        <div class="txt-input col-md-12 col-sm-12 col-lg-12 mb-2">
+          <label>Phone</label>
+          <input type="text" class="input-shadow-error" name="remarks" class="form-control">
+        </div>
+        <div class="row btn-main">
+          <div class="btn-col col-md-12 col-lg-12">
+            <button type="submit" class="btn btn-color pull-right" style="width: 100%;" (click)="CompanyDetails=true;PersonalDetails=false;">
+              Next
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="ftr-main">
+    <p class="ftr-cnt">Already have an account?
+      <span class="ftr-login">Log in</span>
+    </p>
+  </div>
+</div>
+
+<div *ngIf="CompanyDetails">
+
+  <div class="hdr-main">
+    <h2 class="hdr-h1">Add your company details</h2>
+    <p class="hdr-cnt">Lorem Ipsum is simple dummy text of the printing and typesetting industry.</p>
+  </div>
+
+  <div class="form-div">
+    <form class="subformPage">
+      <div class="row" style="padding: 25px;">
+        <div class="txt-input col-md-12 col-sm-12 col-lg-12 mb-2">
+          <img src="../assets/img/noimg.png" />
+          <label style="color: #ed7a00;">Upload your company logo</label>
+        </div>
+        <div class="txt-input col-md-12 col-sm-12 col-lg-12 mb-2">
+          <label>Company Name</label>
+          <input type="text" maxlength="75" class="input-shadow-error" name="companyname" class="form-control">
+        </div>
+        <div class="txt-input col-md-12 col-sm-12 col-lg-12 mb-2">
+          <label>Email</label>
+          <input type="text" class="input-shadow-error" name="email" class="form-control">
+        </div>
+        <div class="txt-input col-md-12 col-sm-12 col-lg-12 mb-2">
+          <label>Job Title</label>
+          <input type="text" class="input-shadow-error" name="title" class="form-control">
+        </div>
+        <div class="txt-input col-md-12 col-sm-12 col-lg-12 mb-2">
+          <label>Year of Experience</label>
+          <input type="text" class="input-shadow-error" name="exp" class="form-control">
+        </div>
+        <label class="txt-input">
+          <input type="checkbox"> I accept the
+          <span class="ftr-radio">Terms and conditions</span>
+        </label>
+        <div class="row btn-main">
+          <div class="btn-col col-md-3 col-lg-3">
+            <button type="submit" class="btn btn-light pull-right" style="width: 85%;">
+              Back
+            </button>
+          </div>
+          <div class="btn-col col-md-9 col-lg-9">
+            <button type="submit" disabled class="btn btn-color pull-right" style="width: 100%;">
+              Send OTP
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+
+
+</div>
